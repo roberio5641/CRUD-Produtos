@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { createProduct, updateProduct, fetchProducts } from '../services/Api';
+import './ProductForm.css'
     
 
 const ProductForm = () => {
@@ -78,8 +79,8 @@ const ProductForm = () => {
   }
 
   return (
-    <form onSubmit={handleSubmit}>
-      <h2>{id ? 'Editar Produto' : 'Novo Produto'}</h2>
+    <form className="product-form" onSubmit={handleSubmit}>
+      <h2 className="form-title">{id ? 'Editar Produto' : 'Novo Produto'}</h2>
       <input
         type="text"
         id="name"
@@ -88,6 +89,7 @@ const ProductForm = () => {
         onChange={(e) => setName(e.target.value)}
         placeholder="Nome do Produto"
         required
+        className="form-input"
       />
       <input
         type="text"
@@ -97,6 +99,7 @@ const ProductForm = () => {
         onChange={(e) => setDescription(e.target.value)}
         placeholder="Descrição do Produto"
         required
+        className="form-input"
       />
       <input
         type="number"
@@ -106,6 +109,7 @@ const ProductForm = () => {
         onChange={(e) => setPrice(e.target.value)}
         placeholder="Preço do Produto"
         required
+        className="form-input"
       />
       <input
         type="number"
@@ -115,10 +119,14 @@ const ProductForm = () => {
         onChange={(e) => setStock(e.target.value)}
         placeholder="Estoque do Produto"
         required
+        className="form-input"
       />
-      <button type="submit">{id ? 'Atualizar' : 'Criar'}</button>
+      <button type="submit" className="form-button">
+        {id ? 'Atualizar' : 'Criar'}
+      </button>
     </form>
   );
+  
 };
 
 export default ProductForm;

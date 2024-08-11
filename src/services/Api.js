@@ -33,7 +33,7 @@ import axios from 'axios';
       };
       
       export const updateProduct = async (id, product) => {
-        const response = await api.put(`/api/products/update-product/${id}`, product);
+        const response = await api.patch(`/api/products/update-product/${id}`, product);
         return response.data;
       };
       
